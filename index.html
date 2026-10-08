@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checklist - Unidad de carga</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div class="subtitulo">CHECKLIST</div>
+        <h1>Unidad de carga</h1>
+    </header>
+
+    <section class="datos">
+
+        <div class="campo">
+            <label>FECHA</label>
+            <input type="date" id="fecha">
+        </div>
+
+        <div class="campo">
+            <label>PLACAS</label>
+            <input type="text" id="placas" placeholder="Ej. AB-1234">
+        </div>
+
+        <div class="campo">
+            <label>KILOMETRAJE</label>
+            <input type="number" id="kilometraje" placeholder="Ej. 85420">
+        </div>
+
+        <div class="campo">
+            <label>CONDUCTOR</label>
+            <input type="text" id="conductor" placeholder="Nombre del conductor">
+        </div>
+
+    </section>
+
+    <section class="progreso-container">
+
+        <div class="progreso-info">
+            <span>Inspección</span>
+            <span id="contador">0 / 16</span>
+        </div>
+
+        <div class="barra">
+            <div class="barra-progreso" id="barra"></div>
+        </div>
+
+    </section>
+
+    <div class="leyenda">
+        <span><i class="punto verde"></i> Bien</span>
+        <span><i class="punto rojo"></i> Falla</span>
+    </div>
+
+    <main class="checklist" id="checklist"></main>
+
+    <section class="observaciones">
+
+        <label>OBSERVACIONES</label>
+
+        <textarea
+            id="observaciones"
+            placeholder="Agregue observaciones de la unidad..."
+        ></textarea>
+
+    </section>
+
+    <section class="acciones">
+        <button id="finalizar">
+            Finalizar inspección
+        </button>
+    </section>
+
+</div>
+
+
+<div class="modal-fondo" id="modalFondo">
+
+    <div class="modal">
+
+        <h2>Inspección terminada</h2>
+
+        <p id="unidadResultado"></p>
+
+        <div class="resultado">
+            <p>✓ Elementos correctos: <strong id="totalBien"></strong></p>
+            <p>⚠ Fallas encontradas: <strong id="totalFalla"></strong></p>
+        </div>
+
+        <div class="modal-botones">
+
+            <button class="cerrar" onclick="cerrarModal()">
+                Cerrar
+            </button>
+
+            <button class="nuevo" onclick="nuevoChecklist()">
+                Nuevo
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

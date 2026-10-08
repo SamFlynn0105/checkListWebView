@@ -1,0 +1,391 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --azul: #1466a3;
+            --azul-oscuro: #0d4f80;
+            --naranja: #e78413;
+            --verde: #15945f;
+            --rojo: #d64232;
+            --fondo: #f4f6f9;
+            --tarjeta: #ffffff;
+            --texto: #20252b;
+            --gris: #6d747c;
+            --borde: #dce2e8;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fondo);
+            color: var(--texto);
+        }
+
+        .app {
+            max-width: 760px;
+            margin: auto;
+            min-height: 100vh;
+            background: white;
+        }
+
+        /* HEADER */
+
+        header {
+            padding: 25px 20px 20px;
+            text-align: center;
+            border-top: 6px solid var(--naranja);
+        }
+
+        .subtitulo {
+            color: var(--naranja);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            color: var(--azul);
+            font-size: 30px;
+        }
+
+        /* DATOS GENERALES */
+
+        .datos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .campo label {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--gris);
+        }
+
+        .campo input {
+            border: none;
+            border-bottom: 2px solid var(--azul);
+            padding: 10px 4px;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+        }
+
+        .campo input:focus {
+            border-color: var(--naranja);
+        }
+
+        /* PROGRESO */
+
+        .progreso-container {
+         position: sticky;
+         top: 0;
+         z-index: 100;
+
+         padding: 12px 20px;
+
+         background: white;
+
+         border-bottom: 1px solid #e3e7eb;
+       }
+
+        .progreso-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            font-size: 12px;
+            color: var(--gris);
+        }
+
+        .barra {
+            height: 7px;
+            background: #e3e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .barra-progreso {
+            width: 0;
+            height: 100%;
+            background: var(--verde);
+            transition: width .25s;
+        }
+
+        /* LEYENDA */
+
+        .leyenda {
+            display: flex;
+            justify-content: flex-end;
+            gap: 18px;
+            padding: 0 22px 12px;
+            font-size: 13px;
+        }
+
+        .leyenda span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .punto {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .punto.verde {
+            background: var(--verde);
+        }
+
+        .punto.rojo {
+            background: var(--rojo);
+        }
+
+        /* CHECKLIST */
+
+        .checklist {
+            padding: 0 15px;
+        }
+
+        .item {
+            display: grid;
+            grid-template-columns: 48px 1fr auto;
+            align-items: center;
+            gap: 12px;
+
+            background: #f2f5f9;
+            border-radius: 12px;
+
+            padding: 10px;
+            margin-bottom: 10px;
+
+            transition: .2s;
+        }
+
+        .item.falla {
+            background: #fff1ef;
+        }
+
+        .item.bien {
+            background: #eef9f4;
+        }
+
+        .icono {
+            height: 45px;
+            width: 45px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: var(--azul);
+            color: white;
+
+            border-radius: 10px;
+
+            font-size: 21px;
+        }
+
+        .nombre {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* BOTONES BIEN / FALLA */
+
+        .opciones {
+            display: flex;
+            gap: 10px;
+        }
+
+        .radio {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            transition: .15s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .radio.bien {
+            border: 2px solid var(--verde);
+        }
+
+        .radio.falla {
+            border: 2px solid var(--rojo);
+        }
+
+        .radio.bien.seleccionado {
+            background: var(--verde);
+        }
+
+        .radio.falla.seleccionado {
+            background: var(--rojo);
+        }
+
+        .radio.seleccionado::after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+        }
+
+        /* OBSERVACIONES */
+
+        .observaciones {
+            padding: 20px;
+        }
+
+        .observaciones label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--gris);
+            margin-bottom: 7px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 90px;
+
+            resize: vertical;
+
+            border: 1px solid var(--borde);
+            border-radius: 10px;
+
+            padding: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: var(--azul);
+        }
+
+        /* BOTONES */
+
+        .acciones {
+            padding: 0 20px 30px;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #finalizar {
+            width: 100%;
+            color: white;
+            background: var(--azul);
+        }
+
+        #finalizar:hover {
+            background: var(--azul-oscuro);
+        }
+
+        /* MODAL */
+
+        .modal-fondo {
+            display: none;
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0,0,0,.55);
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 420px;
+            padding: 25px;
+        }
+
+        .modal h2 {
+            color: var(--azul);
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            margin-bottom: 8px;
+        }
+
+        .resultado {
+            background: var(--fondo);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .modal-botones {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-botones button {
+            flex: 1;
+        }
+
+        .nuevo {
+            background: var(--naranja);
+            color: white;
+        }
+
+        .cerrar {
+            background: #e5e8eb;
+        }
+
+        /* MOVIL */
+
+        @media (max-width: 560px) {
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .datos {
+                grid-template-columns: 1fr;
+            }
+
+            .item {
+                grid-template-columns: 42px 1fr auto;
+                gap: 8px;
+            }
+
+            .icono {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nombre {
+                font-size: 14px;
+            }
+
+            .radio {
+                width: 31px;
+                height: 31px;
+            }
+        }
